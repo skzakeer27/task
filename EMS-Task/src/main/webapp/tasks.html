@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Assignment and Tracking</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        input, select, textarea {
+            padding: 8px;
+            margin: 5px 0;
+            display: inline-block;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Employee Management System</h1>
+    </header>
+
+    <h2>Task Assignment and Tracking</h2>
+
+    <form id="taskForm">
+        <label for="taskTitle">Task Title:</label>
+        <input type="text" id="taskTitle" name="taskTitle" required>
+
+        <label for="assignedTo">Assigned To:</label>
+        <input type="text" id="assignedTo" name="assignedTo" required>
+
+        <label for="dueDate">Due Date:</label>
+        <input type="date" id="dueDate" name="dueDate" required>
+
+        <label for="taskDescription">Task Description:</label>
+        <textarea id="taskDescription" name="taskDescription" rows="4" required></textarea>
+
+        <button type="button" onclick="assignTask()">Assign Task</button>
+    </form>
+
+    <h2>Task List</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Task Title</th>
+                <th>Assigned To</th>
+                <th>Due Date</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody id="taskList">
+            <!-- Task list will be displayed here -->
+        </tbody>
+    </table>
+
+    <script>
+        function assignTask() {
+            var title = document.getElementById("taskTitle").value;
+            var assignedTo = document.getElementById("assignedTo").value;
+            var dueDate = document.getElementById("dueDate").value;
+            var description = document.getElementById("taskDescription").value;
+
+            var table = document.getElementById("taskList");
+            var newRow = table.insertRow(table.rows.length);
+
+            var cell1 = newRow.insertCell(0);
+            var cell2 = newRow.insertCell(1);
+            var cell3 = newRow.insertCell(2);
+            var cell4 = newRow.insertCell(3);
+
+            cell1.innerHTML = title;
+            cell2.innerHTML = assignedTo;
+            cell3.innerHTML = dueDate;
+            cell4.innerHTML = description;
+
+            // Clear input fields
+            document.getElementById("taskTitle").value = "";
+            document.getElementById("assignedTo").value = "";
+            document.getElementById("dueDate").value = "";
+            document.getElementById("taskDescription").value = "";
+        }
+    </script>
+</body>
+</html>
