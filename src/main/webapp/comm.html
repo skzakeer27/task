@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internal Communications</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        h2 {
+            color: #333;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .message-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Employee Management System</h1>
+    </header>
+
+
+    <h2>Internal Communications</h2>
+
+    <div class="message-container" id="messageContainer">
+        <!-- Messages will be displayed here -->
+    </div>
+
+    <form id="communicationForm">
+        <label for="message">New Message:</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <button type="button" onclick="postMessage()">Post Message</button>
+    </form>
+
+    <script>
+        function postMessage() {
+            var message = document.getElementById("message").value;
+
+            if (message.trim() !== "") {
+                var messageContainer = document.getElementById("messageContainer");
+                var newMessage = document.createElement("p");
+                newMessage.innerHTML = message;
+                messageContainer.appendChild(newMessage);
+
+                // Clear the textarea
+                document.getElementById("message").value = "";
+            }
+        }
+    </script>
+</body>
+</html>
