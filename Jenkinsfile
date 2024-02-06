@@ -16,7 +16,7 @@ pipeline {
     stages {
         stage('Fetch & Build') {
             steps {
-                git branch: 'main', url: 'https://github.com/Vara-Kumar/EMS.git'
+                git branch: 'main', url: 'https://github.com/skzakeer27/task.git'
                 sh "mvn package"
             }
         }
@@ -45,9 +45,9 @@ pipeline {
                     // sh 'sudo usermod -aG docker $USER'
                     // sh 'sudo chown root:docker /var/run/docker.sock'
                     // sh 'sudo chmod 660 /var/run/docker.sock'
-                    sh 'docker build -t varakumar/ems:latest .'
-                    sh 'docker push varakumar/ems:latest'
-                    // sh 'docker run -d --name EMS -p 8090:8080 varakumar/ems:latest'
+                    sh 'docker build -t skzakeer27/ems:latest .'
+                    sh 'docker push skzakeer27/ems:latest'
+                    // sh 'docker run -d --name EMS -p 8090:8080 skzakeer27/ems:latest'
                 }            
             }
         }
