@@ -47,7 +47,7 @@ pipeline {
                     // sh 'sudo chmod 660 /var/run/docker.sock'
                     sh 'docker build -t skzakeer27/ems:latest .'
                     sh 'docker push skzakeer27/ems:latest'
-                    // sh 'docker run -d --name EMS -p 8090:8080 skzakeer27/ems:latest'
+                    sh 'docker run -d --name EMS -p 8090:8080 skzakeer27/ems:latest'
                 }            
             }
         }
